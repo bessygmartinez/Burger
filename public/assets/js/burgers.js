@@ -3,7 +3,15 @@ $(function() {
   $('.form').on('submit', function(event) {
     event.preventDefault();
 
-    var newBurger = {
+    let valid = true;
+
+    if ($("#burger-input").val() === "") {
+      valid = false;
+    }
+
+    if (valid === true) {
+
+    let newBurger = {
       burger_name: $('#burger-input')
         .val()
         .trim(),
@@ -11,21 +19,21 @@ $(function() {
     };
     // console.log(newBurger);
 
-    $.ajax('/api/burgers', {
-      type: 'POST',
-      data: newBurger
-    }).then(function() {
+    $.post('/api/burgers', newBurger, function(data) {
       console.log('Burger added!');
       // Reload the page to get the updated list
       location.reload();
-    });
+      });
+    } else {
+      $("#enter-burger").modal("toggle");
+    };
   });
 
   $('.eat-btn').on('click', function(event) {
-    var burgerId = $(this).data('id');
-    var newEat = $(this).data('newdevour');
+    let burgerId = $(this).data('id');
+    let newEat = $(this).data('newdevour');
 
-    var burgerEaten = {
+    let burgerEaten = {
       devoured: newEat
     };
 
