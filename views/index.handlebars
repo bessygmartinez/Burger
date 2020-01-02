@@ -1,26 +1,26 @@
 <div class="logo">
-    <img src="/assets/images/logo.jpg" alt="Good Burger Logo">
+    <img src="/assets/img/goodburger_logo.png" alt="Good Burger Logo" class="img-fluid mt-2 mb-2">
 </div>
 
-<div class="row">
+<div class="row bg-light p-3">
     <div class="col-md-12 text-center">
-                <h2>Welcome to Good Burger, home of the Good Burger. Can I take your order?</h2>
+                <h2 class="mb-0">Welcome to Good Burger, home of the Good Burger. Can I take your order?</h2>
     </div>
 </div>
 
-<div class="row">
-    <div class="col-md-12 text-center mt-3">
-        <p class="text">Eat a burger, dude. OR make a new one to eat!</p>
+<div class="row bg-light p-2">
+    <div class="col-md-12 text-center mt-0">
+        <p class="text mt-0">Eat a burger, dude. OR make a new one to eat!</p>
         <form class="form">
             <div class="form-group">
-                <input type="text" placeholder="Burger name" id="burger-input" name="name">
+                <input type="text" placeholder="Enter your burger's name" id="burger-input" name="name" class="border border-secondary">
             </div>
             <button id="submit-btn" type="submit">ADD <i class="fas fa-hamburger"></i></button>
         </form>
     </div>
 </div>
 
-<div class="row">
+<div class="row mb-0 mt-2">
 
     <div class="col-md-5 eat">
         <h2>You can eat these, dude!</h2>
@@ -34,11 +34,13 @@
         <ul>
             {{#each burgers}} {{#if devoured}}
             <div class="eat-burger">
+                <span class="label"><img src="/assets/img/bitenburger.png" class="biten-burger"></span>
                 <span class="label">#{{this.id}}</span>
                 <span class="label">{{this.burger_name}}</span>
+                
             </div>
             {{/if}} {{/each}}
         </ul>
     </div>
-    <div class="col-md-1"></div>
+    <div class="col-md-1 mb-0"></div>
 </div>
