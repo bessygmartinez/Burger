@@ -27,7 +27,7 @@ function objToSQL(ob) {
 
 let orm = {
     selectAll: function (table, cb) {
-        let query = `SELECT * FROM burgers;`
+        let query = `SELECT * FROM ${table};`
         connection.query(query, [table], function(err, res) {
             if (err) {
                 console.log(err);
@@ -39,7 +39,7 @@ let orm = {
     },
 
     insertOne: function(table, cols, vals, cb) {
-        let query = `INSERT INTO burgers`;
+        let query = `INSERT INTO ${table}`;
         query += ' (';
         query += cols.toString();
         query += ') ';
@@ -57,7 +57,7 @@ let orm = {
     },
 
     updateOne: function(table, obj, condition, cb) {
-        let query = `UPDATE burgers`;
+        let query = `UPDATE ${table}`;
         query += ' SET ';
         query += objToSQL(obj);
         query += ' WHERE ';
