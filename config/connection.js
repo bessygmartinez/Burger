@@ -3,11 +3,11 @@ const mysql = require("mysql");
 
 //Create connection to burgers database
 const connection = mysql.createConnection({
-    host: process.env.dbServer,
-    port: process.env.dbPort,
-    user: process.env.dbUser,
-    password: process.env.dbPass,
-    database: process.env.db
+    host: "localhost",
+    port: "3306",
+    user: "root",
+    password: "Yesyesno1!",
+    database: "burgers_db"
 });
 
 connection.connect(function(err) {
