@@ -6,10 +6,6 @@ let exphbs = require("express-handlebars");
 
 let PORT = process.env.PORT || 8080;
 
-app.get("/", function(req, res) {
-    res.json(path.join(__dirname, "public/index.html"));
-  });
-
 //To server static content for the app from "public" directory
 app.use(express.static("public"));
 
